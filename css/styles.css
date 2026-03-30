@@ -191,6 +191,13 @@ p {
   padding: 0 var(--space-6);
 }
 
+/* Fix 1: narrow screen container padding */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+}
+
 .section {
   padding: var(--space-24) 0;
 }
@@ -259,6 +266,17 @@ p {
 
 .section-header p {
   font-size: var(--fs-md);
+}
+
+/* Fix 4: section header font sizes on narrow screens */
+@media (max-width: 480px) {
+  .section-header p {
+    font-size: var(--fs-base);
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
 }
 
 /* --- Navigation --- */
@@ -433,6 +451,21 @@ p {
 
   .nav__overlay.open {
     display: block;
+  }
+}
+
+/* Fix 12a: full-width drawer on very narrow phones */
+@media (max-width: 480px) {
+  .nav__links {
+    width: 100%;
+    border-left: none;
+  }
+}
+
+/* Fix 12b: hide logo text on smallest phones */
+@media (max-width: 360px) {
+  .nav__logo span {
+    display: none;
   }
 }
 
@@ -720,6 +753,32 @@ textarea.input {
   flex-wrap: wrap;
 }
 
+/* Fix 2: hero adjustments for narrow screens */
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .hero__subtitle {
+    font-size: var(--fs-base);
+    max-width: 100%;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  .hero__badge {
+    font-size: 0.65rem;
+    padding: var(--space-1) var(--space-3);
+  }
+}
+
 .hero__scroll-indicator {
   position: absolute;
   bottom: var(--space-8);
@@ -771,8 +830,17 @@ textarea.input {
 }
 
 @media (max-width: 480px) {
+  .stats-bar {
+    margin-top: 0;
+  }
+
   .stats-bar__inner {
     grid-template-columns: 1fr;
+    padding: var(--space-4);
+  }
+
+  .stat__number {
+    font-size: var(--fs-xl);
   }
 }
 
@@ -924,6 +992,18 @@ textarea.input {
   text-align: right;
 }
 
+/* Fix 5: about detail layout for narrow screens */
+@media (max-width: 480px) {
+  .about__detail {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .about__detail-value {
+    text-align: left;
+  }
+}
+
 /* --- Services Section --- */
 .services__grid {
   display: grid;
@@ -1007,6 +1087,17 @@ textarea.input {
   line-height: var(--lh-body);
 }
 
+/* Fix 6: service card sizing on narrow screens */
+@media (max-width: 480px) {
+  .service-card {
+    padding: var(--space-6);
+  }
+
+  .service-card h4 {
+    font-size: var(--fs-base);
+  }
+}
+
 /* --- Advantages Section --- */
 .advantages__grid {
   display: grid;
@@ -1055,6 +1146,18 @@ textarea.input {
   color: var(--color-text-secondary);
 }
 
+/* Fix 7: advantage card layout on narrow screens */
+@media (max-width: 480px) {
+  .advantage-card {
+    flex-direction: column;
+    padding: var(--space-6);
+  }
+
+  .advantage-card__number {
+    font-size: var(--fs-xl);
+  }
+}
+
 /* --- Partners Section --- */
 .partners__grid {
   display: grid;
@@ -1065,6 +1168,13 @@ textarea.input {
 @media (max-width: 640px) {
   .partners__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Fix 8: partner card min-height on narrow screens */
+@media (max-width: 480px) {
+  .partner-card {
+    min-height: 120px;
   }
 }
 
@@ -1225,6 +1335,15 @@ textarea.input {
 .contact-info__text p {
   font-size: var(--fs-sm);
   color: var(--color-text-secondary);
+  word-break: break-word;
+}
+
+/* Fix 9: contact info card on narrow screens */
+@media (max-width: 480px) {
+  .contact-info__card {
+    padding: var(--space-4);
+    gap: var(--space-3);
+  }
 }
 
 .contact-info__text a {
@@ -1328,6 +1447,24 @@ textarea.input {
   color: var(--color-primary);
 }
 
+/* Fix 10: footer adjustments on narrow screens */
+@media (max-width: 480px) {
+  .footer__brand {
+    max-width: 100%;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .footer__bottom-links {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+}
+
 /* --- Animations --- */
 .reveal {
   opacity: 0;
@@ -1403,6 +1540,15 @@ textarea.input {
 
 .toast--error {
   border-color: var(--color-error);
+}
+
+/* Fix 11: toast full-width on narrow screens */
+@media (max-width: 480px) {
+  .toast {
+    right: var(--space-4);
+    left: var(--space-4);
+    width: calc(100% - var(--space-8));
+  }
 }
 
 /* --- Utility --- */
